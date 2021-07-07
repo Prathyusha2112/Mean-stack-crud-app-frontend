@@ -1,0 +1,57 @@
+<div class="col s5">
+    <form #compensationForm="ngForm" (ngSubmit)="onSubmit(compensationForm)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="compensationService.selectedCompensation._id" />
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="role" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.role" />
+                <label>Role
+<label class="red-text">*</label>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="ctc" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.ctc" />
+                <label>ctc
+<label class="red-text">*</label>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="basic" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.basic" />
+                <label>basic
+<label class="red-text">*</label>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="hra" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.hra" />
+                <label>hra</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="lta" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.lta" />
+                <label>lta</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="bonus" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.bonus" />
+                <label>bonus</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button class="btn btn-custom right" type="button" (click)="resetForm(compensationForm)">
+Reset
+</button>
+                <button class="btn btn-custom right" type="submit" [disabled]="!compensationForm.valid">
+Submit
+</button>
+            </div>
+        </div>
+    </form>
+</div>

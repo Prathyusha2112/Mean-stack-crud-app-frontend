@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s5">
+                        <form #compensationForm="ngForm" (ngSubmit)="onSubmit(compensationForm)">
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="compensationService.selectedCompensation._id" />
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" name="role" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.role" />
+                                    <label>Role
+                    <label class="red-text">*</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" name="ctc" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.ctc" />
+                                    <label>ctc
+                    <label class="red-text">*</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" name="basic" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.basic" />
+                                    <label>basic
+                    <label class="red-text">*</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" name="hra" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.hra" />
+                                    <label>hra</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" name="lta" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.lta" />
+                                    <label>lta</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="number" name="bonus" #name="ngModel" [(ngModel)]="compensationService.selectedCompensation.bonus" />
+                                    <label>bonus</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button class="btn btn-custom right" type="button" (click)="resetForm(compensationForm)">
+                    Reset
+                  </button>
+                                    <button class="btn btn-custom right" type="submit" [disabled]="!compensationForm.valid">
+                    Submit
+                  </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col s7">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>ctc</th>
+                                    <th>basic</th>
+                                    <th>hra</th>
+                                    <th>lta</th>
+                                    <th>bonus</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr *ngFor="let comp of compensationService.compensations">
+                                <td>{{ comp.role }}</td>
+                                <td>{{ comp.ctc }}</td>
+                                <td>{{ comp.basic }}</td>
+                                <td>{{ comp.hra }}</td>
+                                <td>{{ comp.lta }}</td>
+                                <td>{{ comp.bonus }}</td>
+                                <td>
+                                    <a class="action-btn" (click)="onEdit(comp)">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a class="action-btn" (click)="onDelete(comp._id!, compensationForm)">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

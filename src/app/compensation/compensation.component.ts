@@ -33,7 +33,12 @@ export class CompensationComponent implements OnInit {
       basic: 0,
       hra: 0,
       lta: 0,
-      bonus: 0
+      bonus: 0,
+      ctcm: 0,
+      basicm: 0,
+      hram: 0,
+      ltam: 0,
+      bonusm: 0
       
     }
   }
@@ -61,8 +66,8 @@ export class CompensationComponent implements OnInit {
     });
   }
 
-  onEdit(emp: Compensation) {
-    this.compensationService.selectedCompensation = emp;
+  onEdit(comp: Compensation) {
+    this.compensationService.selectedCompensation = comp;
   }
 
   onDelete(_id: string, form: NgForm) {

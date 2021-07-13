@@ -61,34 +61,59 @@
                         </form>
                     </div>
                     <div class="col s7">
-                        <table class="responsive-table highlight">
-                            <thead>
+                        <table class="responsive-table highlight" style="border: 1px white; z-index: 2;" *ngFor="let comp of compensationService.compensations">
+                            <thead style="border: 1px white">
                                 <tr>
-                                    <th>Role</th>
-                                    <th>ctc</th>
-                                    <th>basic</th>
-                                    <th>hra</th>
-                                    <th>lta</th>
-                                    <th>bonus</th>
+                                    <th>{{comp.role}}</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <td style="border: 1px solid black ;">
+                                        <a class="action-btn" (click)="onEdit(comp)">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <a class="action-btn" (click)="onDelete(comp._id!, compensationForm)">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>yearly</th>
+                                    <th>monthly</th>
+
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tr *ngFor="let comp of compensationService.compensations">
-                                <td>{{ comp.role }}</td>
-                                <td>{{ comp.ctc }}</td>
+                            <tr>
+                                <td>Basic</td>
                                 <td>{{ comp.basic }}</td>
-                                <td>{{ comp.hra }}</td>
-                                <td>{{ comp.lta }}</td>
-                                <td>{{ comp.bonus }}</td>
-                                <td>
-                                    <a class="action-btn" (click)="onEdit(comp)">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    <a class="action-btn" (click)="onDelete(comp._id!, compensationForm)">
-                                        <i class="material-icons">delete</i>
-                                    </a>
-                                </td>
+                                <td>{{ comp.basicm }}</td>
+
+
+
                             </tr>
+                            <tr>
+                                <td>HRA</td>
+                                <td>{{comp.hra}}</td>
+                                <td>{{comp.hram}}</td>
+                            </tr>
+                            <tr>
+                                <td>LTA</td>
+                                <td>{{comp.lta}}</td>
+                                <td>{{comp.ltam}}</td>
+                            </tr>
+                            <tr>
+                                <td>bonus</td>
+                                <td>{{comp.bonus}}</td>
+                                <td>{{comp.bonusm}}</td>
+                            </tr>
+                            <tr>
+                                <td>total</td>
+                                <td>{{comp.ctc}}</td>
+                                <td>{{comp.ctcm}}</td>
+                            </tr>
+
                         </table>
                     </div>
                 </div>

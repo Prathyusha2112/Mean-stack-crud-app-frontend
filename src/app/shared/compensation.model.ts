@@ -6,5 +6,10 @@ export class Compensation {
     hra: Number;
     lta: Number;
     bonus: Number;
+    ctcm: Number;
+    basicm: Number;
+    hram: Number;
+    ltam: Number;
+    bonusm: Number;
     
 }
